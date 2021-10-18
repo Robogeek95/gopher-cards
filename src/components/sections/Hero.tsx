@@ -8,9 +8,9 @@ import {
   Box,
   Grid,
   useBreakpointValue,
+  useColorModeValue,
   Container,
 } from "@chakra-ui/react";
-import { SettingsIcon } from "@chakra-ui/icons";
 import { FaBuysellads, FaSdCard, FaUsers } from "react-icons/fa";
 
 type Stats = {
@@ -39,8 +39,9 @@ const stats: Array<Stats> = [
 ];
 
 export default function Hero() {
+  let bg = useColorModeValue("gray.100", "gray.600");
   return (
-    <Box bg="gray.100" minH={"100vh"} py={20}>
+    <Box bg={useColorModeValue("gray.100", "gray.700")} minH={"100vh"} py={20}>
       <Container maxW="container.lg">
         <Grid templateColumns="repeat(2, 1fr)">
           <Flex p={8} flex={1} align={"center"} justify={"center"}>
@@ -80,6 +81,8 @@ export default function Hero() {
                   _hover={{
                     bg: "blue.500",
                   }}
+                  as="a"
+                  href="#modules"
                 >
                   Get Started
                 </Button>
@@ -94,8 +97,8 @@ export default function Hero() {
               w={"540px"}
               h={"340px"}
               px="12"
-              bg="white"
               borderRadius="25"
+              bg={useColorModeValue("white", "gray.600")}
             >
               <Text textAlign="center">
                 a programming language for which most of its implementations
@@ -125,7 +128,7 @@ export default function Hero() {
               flexDir="column"
               alignItems="center"
               alignContent="center"
-              bg="gray.100"
+              bg={bg}
               rounded="xl"
               h="100%"
               w="170px"

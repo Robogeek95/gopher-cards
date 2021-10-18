@@ -1,4 +1,4 @@
-import { Box, Grid, VStack, Code, Link, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import React from "react";
 import Footer from "../components/Footer";
 import NavBar from "../components/Navbar";
