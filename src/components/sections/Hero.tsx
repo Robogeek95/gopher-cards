@@ -11,7 +11,9 @@ import {
   useColorModeValue,
   Container,
 } from "@chakra-ui/react";
-import { FaBuysellads, FaSdCard, FaUsers } from "react-icons/fa";
+import { FaBook, FaBuysellads, FaSdCard, FaUsers } from "react-icons/fa";
+import Flashcard from "../Flashcard";
+import { Icon } from "@chakra-ui/icons";
 
 type Stats = {
   label: string;
@@ -24,17 +26,17 @@ const stats: Array<Stats> = [
   {
     label: "modules",
     value: 3,
-    icon: <FaBuysellads fontSize="30" color="blue.800" />,
+    icon: <FaBuysellads fontSize="30" />,
   },
   {
     label: "FlashCards",
     value: 59,
-    icon: <FaSdCard fontSize="30" color="blue.800" />,
+    icon: <FaBook fontSize="30" />,
   },
   {
     label: "Learners",
     value: 100,
-    icon: <FaUsers fontSize="30" color="blue.800" />,
+    icon: <FaUsers fontSize="30" />,
   },
 ];
 
@@ -86,26 +88,15 @@ export default function Hero() {
                 >
                   Get Started
                 </Button>
-                <Button rounded={"full"}>How It Works</Button>
+                <Button rounded={"full"}>
+                  <Icon name="question" mr="2"/>
+                  How It Works
+                </Button>
               </Stack>
             </Stack>
           </Flex>
           <Flex flex={1} justifyContent="center" alignItems="center">
-            <Flex
-              justifyContent="center"
-              alignItems="center"
-              w={"540px"}
-              h={"340px"}
-              px="12"
-              borderRadius="25"
-              bg={useColorModeValue("white", "gray.600")}
-            >
-              <Text textAlign="center">
-                a programming language for which most of its implementations
-                execute instructions directly, without previously compiling a
-                program into machine-language instructions.
-              </Text>
-            </Flex>
+            <Flashcard />
           </Flex>
         </Grid>
 
@@ -133,7 +124,7 @@ export default function Hero() {
               h="100%"
               w="170px"
             >
-              <Box>{stat.icon}</Box>
+              <Box color="blue.500">{stat.icon}</Box>
               <Box mt="3">
                 <Text>
                   {stat.value} {stat.label}

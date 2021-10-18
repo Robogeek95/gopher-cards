@@ -11,6 +11,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import { ArrowRightIcon } from "@chakra-ui/icons";
+import { useHistory } from "react-router-dom";
 
 const modules = [
   {
@@ -117,12 +118,16 @@ function TestmonialCard(props: TestimonialCardProps) {
           color: "white",
           bg: "blue.800",
         }}
+        as="a"
+        href={`/${module.toLowerCase()}`}
       />
     </Stack>
   );
 }
 
 export default function Modules() {
+  // const history = useHistory();
+
   return (
     <Box py="20" id="modules">
       <Container maxW="container.lg">
