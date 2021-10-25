@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { IconButton } from "@chakra-ui/button";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box, Grid, GridItem, Stack, Text } from "@chakra-ui/layout";
 import { useParams, Redirect, useHistory } from "react-router-dom";
+import dummyCards from '../utils/cards.json'
 
 import {
   FaBackward,
@@ -14,8 +15,30 @@ import {
 import Flashcard from "../components/Flashcard";
 import Footer from "../components/Footer";
 import NavBar from "../components/Navbar";
+import { Card } from "../types";
 
 export default function Module() {
+  const [currentCard, setCurrentCard] = useState<Card>({ front: "", back: "" })
+  const [cardIndex, setCardIndex] = useState(0)
+
+  useEffect(() => {
+    setCurrentCard(dummyCards[cardIndex])
+  }, [cardIndex])
+
+  function handleIncrement() {
+    if (cardIndex < dummyCards.length - 1) {
+      setCardIndex(cardIndex + 1)
+    }
+  }
+
+  function handleDecrement() {
+    if (cardIndex > 0) {
+      setCardIndex(cardIndex - 1)
+    } else {
+      setCardIndex(0)
+    }
+  }
+
   const { module } = useParams();
   const history = useHistory();
   console.log();
@@ -98,7 +121,7 @@ export default function Module() {
                 </Stack>
               </Stack>
 
-              <Flashcard />
+              <Flashcard card={currentCard} />
 
               <Stack direction="row" justifyContent="space-between">
                 <Stack direction="row"></Stack>
@@ -115,6 +138,7 @@ export default function Module() {
                       color: "gray.300",
                     }}
                     aria-label={`Prev`}
+                    onClick={handleDecrement}
                   />
 
                   <IconButton
@@ -128,6 +152,7 @@ export default function Module() {
                       color: "gray.300",
                     }}
                     aria-label={`Next`}
+                    onClick={handleIncrement}
                   />
                 </Stack>
               </Stack>

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import {
   Button,
   Flex,
@@ -14,6 +14,7 @@ import {
 import { FaBook, FaBuysellads, FaSdCard, FaUsers } from "react-icons/fa";
 import Flashcard from "../Flashcard";
 import { Icon } from "@chakra-ui/icons";
+import dummyCards from '../../utils/cards.json'
 
 type Stats = {
   label: string;
@@ -96,7 +97,7 @@ export default function Hero() {
             </Stack>
           </Flex>
           <Flex flex={1} justifyContent="center" alignItems="center">
-            <Flashcard />
+            <Flashcard card={dummyCards[0]}/>
           </Flex>
         </Grid>
 

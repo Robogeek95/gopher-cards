@@ -1,9 +1,13 @@
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Box, Flex, Text } from "@chakra-ui/layout";
-import { background } from "@chakra-ui/styled-system";
-import React, { Ref, useRef } from "react";
+import React, { useRef } from "react";
+import { Card } from '../types'
 
-export default function Flashcard() {
+type FlashCardProps = {
+  card: Card
+}
+
+export default function Flashcard({ card }: FlashCardProps) {
   const flipRef = useRef<HTMLDivElement>(null);
   function handleFlip() {
     let element = flipRef?.current;
@@ -36,14 +40,14 @@ export default function Flashcard() {
         ref={flipRef}
       >
         <Flex
-        justifyContent="center"
-        alignItems="center"
-        sx={{
-          transition: "transform 0.8s",
-          transformStyle: "preserve-3d",
-          width: "100%",
-          height: "100%"
-        }}>
+          justifyContent="center"
+          alignItems="center"
+          sx={{
+            transition: "transform 0.8s",
+            transformStyle: "preserve-3d",
+            width: "100%",
+            height: "100%"
+          }}>
           {/* front */}
           <Box sx={{
             position: 'absolute',
@@ -53,9 +57,7 @@ export default function Flashcard() {
           }}
           >
             <Text textAlign="center">
-              A programming language for which most of its implementations execute
-              instructions directly, without previously compiling a program into
-              machine-language instructions.
+              {card.front}
             </Text>
           </Box>
 
@@ -70,7 +72,7 @@ export default function Flashcard() {
             onClick={(e) => handleFlip(e)}
           >
             <Text textAlign="center">
-              Interpreted Language
+              {card.back}
             </Text>
           </Box>
         </Flex>
