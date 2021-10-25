@@ -33,10 +33,10 @@ export default function Module() {
   }, [history, module]);
 
   return (
-    <>
+    < >
       <NavBar />
 
-      <Box bg={useColorModeValue("gray.50", "gray.700")}>
+      <Box bg={useColorModeValue("gray.50", "blue.800")}>
         <Grid justifyContent="center" py={20}>
           <GridItem>
             <Stack spacing="6">
@@ -68,20 +68,6 @@ export default function Module() {
 
                 <Stack direction="row">
                   <IconButton
-                    colorScheme="blue"
-                    size="md"
-                    fontSize="lg"
-                    color="current"
-                    marginLeft="2"
-                    icon={<FaShare />}
-                    _hover={{
-                      bg: "blue.500",
-                      color: "gray.300",
-                    }}
-                    aria-label={`Share`}
-                  />
-
-                  <IconButton
                     size="md"
                     fontSize="lg"
                     // color="red"
@@ -93,6 +79,21 @@ export default function Module() {
                       color: "gray.300",
                     }}
                     aria-label={`report`}
+                  />
+
+                  <IconButton
+                    colorScheme="blue"
+                    size="md"
+                    fontSize="lg"
+                    color="current"
+                    marginLeft="2"
+                    bg="blue.400"
+                    icon={<FaShare />}
+                    _hover={{
+                      bg: "blue.500",
+                      color: "gray.300",
+                    }}
+                    aria-label={`Share`}
                   />
                 </Stack>
               </Stack>

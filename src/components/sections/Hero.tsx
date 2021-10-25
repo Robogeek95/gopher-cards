@@ -43,7 +43,7 @@ const stats: Array<Stats> = [
 export default function Hero() {
   let bg = useColorModeValue("gray.100", "gray.600");
   return (
-    <Box bg={useColorModeValue("gray.100", "gray.700")} minH={"100vh"} py={20}>
+    <Box bg={useColorModeValue("gray.100", "blue.800")} minH={"100vh"} py={20}>
       <Container maxW="container.lg">
         <Grid templateColumns="repeat(2, 1fr)">
           <Flex p={8} flex={1} align={"center"} justify={"center"}>
