@@ -33,7 +33,7 @@ export default function Module() {
   }, [history, module]);
 
   return (
-    < >
+    <Grid templateRows="auto 1fr auto" height="100vh">
       <NavBar />
 
       <Box bg={useColorModeValue("gray.50", "blue.800")}>
@@ -137,6 +137,6 @@ export default function Module() {
       </Box>
 
       <Footer />
-    </>
+    </Grid>
   );
 }
