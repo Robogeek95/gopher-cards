@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
+import { FaGithub, FaHeart, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
@@ -62,17 +63,58 @@ export default function NavBar() {
           flex={{ base: 1, md: 0 }}
           justify={"flex-end"}
           direction={"row"}
-          spacing={6}
+          spacing={4}
         >
-          <Button
-            as={"a"}
+          <IconButton
+            display={{ base: "none", md: "inline-flex" }}
             fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
+            fontWeight={600}
+            color="current"
             href={"#"}
-          >
-            Contact
-          </Button>
+            _hover={{
+              bg: "blue.500",
+              color: "gray.300",
+            }}
+            isRound
+            aria-label="github-icon"
+            icon={<FaGithub />}
+          />
+
+          <IconButton
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={"sm"}
+            fontWeight={600}
+            color="current"
+            href={"#"}
+            _hover={{
+              bg: "blue.500",
+              color: "gray.300",
+            }}
+            isRound
+            aria-label="twitter-icon"
+            icon={<FaTwitter />}
+          />
+
+          <IconButton
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={"sm"}
+            fontWeight={600}
+            color="current"
+            href={"#"}
+            _hover={{
+              bg: "blue.500",
+              color: "gray.300",
+            }}
+            isRound
+            aria-label="linkedin-icon"
+            icon={<FaLinkedin />}
+          />
+
+          <ColorModeSwitcher
+            justifySelf="flex-end"
+            isRound
+          />
+
           <Button
             display={{ base: "none", md: "inline-flex" }}
             fontSize={"sm"}
@@ -84,10 +126,11 @@ export default function NavBar() {
               color: "gray.300",
             }}
           >
-            About
+            Sponsor
+            <Box ml="3" color="green.800">
+              <FaHeart />
+            </Box>
           </Button>
-
-          <ColorModeSwitcher justifySelf="flex-end" />
         </Stack>
       </Flex>
 

@@ -1,37 +1,13 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import {
   Box,
-  chakra,
   Container,
   Stack,
   Text,
   useColorModeValue,
-  VisuallyHidden,
-  Button,
+  IconButton,
 } from "@chakra-ui/react";
-import { FaTwitter, FaYoutube, FaGithub, FaLinkedinIn } from "react-icons/fa";
-
-const SocialButton = ({
-  children,
-  label,
-  href,
-}: {
-  children: ReactNode;
-  label: string;
-  href: string;
-}) => {
-  return (
-    <Button
-      _hover={{
-        bg: "blue.500",
-        color: "gray.300",
-      }}
-    >
-      <VisuallyHidden>{label}</VisuallyHidden>
-      {children}
-    </Button>
-  );
-};
+import { FaTwitter, FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -49,16 +25,57 @@ export default function Footer() {
         align={{ base: "center", md: "center" }}
       >
         <Text>© 2020 Gopher Cards. All rights reserved</Text>
-        <Stack direction={"row"} spacing={6}>
-          <SocialButton label={"Twitter"} href={"#"}>
-            <FaGithub />
-          </SocialButton>
-          <SocialButton label={"YouTube"} href={"#"}>
-            <FaLinkedinIn />
-          </SocialButton>
-          <SocialButton label={"Instagram"} href={"#"}>
-            <FaTwitter />
-          </SocialButton>
+        
+        <Stack
+          flex={{ base: 1, md: 0 }}
+          justify={"flex-end"}
+          direction={"row"}
+          spacing={4}
+        >
+          <IconButton
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={"sm"}
+            fontWeight={600}
+            color="current"
+            href={"#"}
+            _hover={{
+              bg: "blue.500",
+              color: "gray.300",
+            }}
+            isRound
+            aria-label="github-icon"
+            icon={<FaGithub />}
+          />
+
+          <IconButton
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={"sm"}
+            fontWeight={600}
+            color="current"
+            href={"#"}
+            _hover={{
+              bg: "blue.500",
+              color: "gray.300",
+            }}
+            isRound
+            aria-label="twitter-icon"
+            icon={<FaTwitter />}
+          />
+
+          <IconButton
+            display={{ base: "none", md: "inline-flex" }}
+            fontSize={"sm"}
+            fontWeight={600}
+            color="current"
+            href={"#"}
+            _hover={{
+              bg: "blue.500",
+              color: "gray.300",
+            }}
+            isRound
+            aria-label="linkedin-icon"
+            icon={<FaLinkedin />}
+          />
         </Stack>
       </Container>
     </Box>
